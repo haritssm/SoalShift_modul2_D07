@@ -77,7 +77,7 @@ int main() {
 Pada suatu hari Kusuma dicampakkan oleh Elen karena Elen dimenangkan oleh orang lain. Semua kenangan tentang Elen berada pada file bernama “elen.ku” pada direktori “hatiku”. Karena sedih berkepanjangan, tugas kalian sebagai teman Kusuma adalah membantunya untuk menghapus semua kenangan tentang Elen dengan membuat program C yang bisa mendeteksi owner dan group dan menghapus file “elen.ku” setiap 3 detik dengan syarat ketika owner dan grupnya menjadi “www-data”. Ternyata kamu memiliki kendala karena permission pada file “elen.ku”. Jadi, ubahlah permissionnya menjadi 777. Setelah kenangan tentang Elen terhapus, maka Kusuma bisa move on.
 
 #### Penyelesaian
-Pada soal no 2 ini kami belum bisa membuat program c nya. Untuk ide penyelesaiannya adalah dengan mencari tahu mode dan owner dari file tersebut sesuai dengan yang diinginkan dan setelah itu file dihapus.
+Untuk memeriksa owner dari file tersebut digunakan sintaks. Masukkan sintaks struct stat sampai struck group. Setelah mengetahui owner dari file tersebut dan ternyata www-data, kita mengubah modenya dengan menggunakan chmod(elen.ku, 777). Untuk menghapus filenya menggunakan remove(elen.ku)
 
 #### Source Code
 ```
@@ -148,7 +148,8 @@ Diberikan file campur2.zip. Di dalam file tersebut terdapat folder “campur2”
 Buatlah program C yang dapat mengekstrak file zip tersebut dan menyimpan daftar file dari folder “campur2” yang memiliki ekstensi .txt ke dalam file daftar.txt.
 
 #### Penyelesaian
-Penyelesaian soal no 3 ini yaitu dengan mempipe setiap command. Pertama proses child menjalankan unzip file. Setelah itu file tersebut diiterasi menggunakan command find dan memasukan hasilnya kedalam variable dan memasukan hasilnya kedalam file daftar.txt.
+Untuk menyelesaikan soal ini kami menggunakan 3 proses. Pertama kami membuat child proses untuk mengunzip file campur2.zip. Setelah itu kami membuat child proses untuk me-list file yang memiliki ekstensi .txt menggunakan ls hasil proses ini di pipe untuk proses selanjutnya. Setelah itu hasil dari proses tersebut menjadi input proses ini yaitu mencari file .txt menggunakan find dan hasil nya menjadi input di proses selanjutnya yaitu membuat file dengan daftar file yg nemiliki ekstensi .txt
+&quot;Sintax pid3 fork sampe habis&quot;<br>
 
 #### Source Code
 ```
