@@ -77,8 +77,8 @@ int main() {
 Pada suatu hari Kusuma dicampakkan oleh Elen karena Elen dimenangkan oleh orang lain. Semua kenangan tentang Elen berada pada file bernama “elen.ku” pada direktori “hatiku”. Karena sedih berkepanjangan, tugas kalian sebagai teman Kusuma adalah membantunya untuk menghapus semua kenangan tentang Elen dengan membuat program C yang bisa mendeteksi owner dan group dan menghapus file “elen.ku” setiap 3 detik dengan syarat ketika owner dan grupnya menjadi “www-data”. Ternyata kamu memiliki kendala karena permission pada file “elen.ku”. Jadi, ubahlah permissionnya menjadi 777. Setelah kenangan tentang Elen terhapus, maka Kusuma bisa move on.
 
 #### Penyelesaian
-Untuk mencek owner dari file tersebut digunakan sintaks<br>
-&quot;Masukin sintaks struct stat sampe struck group&quot;<br>
+Untuk memeriksa owner dari file tersebut digunakan sintaks<br>
+&quot;Masukkan sintaks struct stat sampe struck group&quot;<br>
 Setelah mengetahui owner dari file tersebut dan ternyata www-data, kita mengubah modenya dengan menggunakan &quot;chmod(&quot;elen.ku&quot;,777)&quot;. Untuk menghapus filenya menggunakan &quot;remove(&quot;elen.ku&quot;)<br>
 <br>
 
@@ -151,8 +151,15 @@ Diberikan file campur2.zip. Di dalam file tersebut terdapat folder “campur2”
 Buatlah program C yang dapat mengekstrak file zip tersebut dan menyimpan daftar file dari folder “campur2” yang memiliki ekstensi .txt ke dalam file daftar.txt.
 
 #### Penyelesaian
-Untuk menyelesaikan soal ini kami menggunakan 3 proses. Pertama kami membuat child proses untuk mengunzip file campur2.zip. Setelah itu kami membuat child proses untuk me-list file yang memiliki ekstensi .txt menggunakan ls hasil proses ini di pipe untuk proses selanjutnya. Setelah itu hasil dari proses tersebut menjadi input proses ini yaitu mencari file .txt menggunakan find dan hasil nya menjadi input di proses selanjutnya yaitu membuat file dengan daftar file yg nemiliki ekstensi .txt
+Untuk menyelesaikan soal ini kami menggunakan 3 proses. Pertama kami membuat child proses untuk mengunzip file campur2.zip<br>
+&quot;Sintaks exec unzip&quot;<br>
+<br>
+Setelah itu kami membuat child proses untuk menlist file yang memiliki ekstensi .txt menggunakan ls hasil proses ini di pipe untuk proses sekanjutnya<br>
+&quot;Sintax dari pid2 fork sampe exec ls&quot;<br>
+<br>
+Setelah itu hasil dari proses tersebut menjadi input proses ini yaitu mencari file .txt menggunakan find dan hasil nya menjadi input di proses selanjutnya yaitu membuat file dengan daftar file yg nemiliki ekstensi .txt<br>
 &quot;Sintax pid3 fork sampe habis&quot;<br>
+<br>
 
 #### Source Code
 ```
@@ -222,7 +229,10 @@ File makan_enak.txt terakhir dibuka pada detik ke-1
 Pada detik ke-10 terdapat file makan_sehat1.txt dan makan_sehat2.txt
 
 #### Penyelesaian
-Penyelesaian soal ini mencari tahu apakah file tersebut telah diakses atau tidak dengan cara command find dan argument -amin -0,5, yaitu mencek apakah ada file yang telah diakses 30 detik yang lalu. Setelah itu membuat file makan_sehat#.txt dengan # sebagai indeks angka.
+Untuk memnyelesaikan soal ini saya menggunakan popen untuk membuat command terminal diperlakukan seperti file yaitu dapat di baca. Saya menggunakan find untuk mencari file
+"sintaks popen find"
+Jika hasil yg didapat sesuai, akan membuat file dengan nama file tertentu
+"sintaks strcmp sampe selesai"
 
 #### Source Code
 ```
@@ -302,7 +312,17 @@ dengan ketentuan :
      ‘#’ : increment per menit. Mulai dari 1
 
 #### Penyelesaian
-Penyelesaian soal no 5 ini, program membuat file pada proses child dengan isi yang didapat dari ps aux menggunakan popen setiap 1 menit. Pada proses parent dilakukan pembuatan folder dengan format date.
+Untuk mendapatkan format jam kami menggunakan struct time dari c
+"sintaks time sampai ptm"
+
+Selanjutnya menggunkan popen grep untuk mendapatkan data dengan jam yg kita inginkan
+"popen grep"
+
+Program akan berjalan setiap 1 menit dan setiap 1 menit saya membuat variabel untuk mengingatkan sudah menjalaninya berapa kali senhingga kita dapat membuat folder jika variable tersebut jika kita modulus dengan 31 dan menghasilkan 0 akan membuat folder dengan mkdir
+"sintaks if punya mkdir"
+
+Untuk membuat file kami menggunakan cara seperti biasa yaitu fopen 
+"sintaks fopen sampe selesai"
 
 #### Source Code
 ```
@@ -387,7 +407,7 @@ int main() {
 Buatlah program c untuk menghentikan program nomor 5a.
 
 #### Penyelesaian
-
+Untuk menghentikannya kita menggunakan perintah killall, lalu menunjukkan proses yang ingin dihentikan
 
 #### Source Code
 ```
