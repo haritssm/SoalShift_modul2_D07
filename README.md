@@ -77,7 +77,10 @@ int main() {
 Pada suatu hari Kusuma dicampakkan oleh Elen karena Elen dimenangkan oleh orang lain. Semua kenangan tentang Elen berada pada file bernama “elen.ku” pada direktori “hatiku”. Karena sedih berkepanjangan, tugas kalian sebagai teman Kusuma adalah membantunya untuk menghapus semua kenangan tentang Elen dengan membuat program C yang bisa mendeteksi owner dan group dan menghapus file “elen.ku” setiap 3 detik dengan syarat ketika owner dan grupnya menjadi “www-data”. Ternyata kamu memiliki kendala karena permission pada file “elen.ku”. Jadi, ubahlah permissionnya menjadi 777. Setelah kenangan tentang Elen terhapus, maka Kusuma bisa move on.
 
 #### Penyelesaian
-Untuk memeriksa owner dari file tersebut digunakan sintaks. Masukkan sintaks struct stat sampai struck group. Setelah mengetahui owner dari file tersebut dan ternyata www-data, kita mengubah modenya dengan menggunakan chmod(elen.ku, 777). Untuk menghapus filenya menggunakan remove(elen.ku)
+Untuk mencek owner dari file tersebut digunakan sintaks<br>
+&quot;Masukin sintaks struct stat sampe struck group&quot;<br>
+Setelah mengetahui owner dari file tersebut dan ternyata www-data, kita mengubah modenya dengan menggunakan &quot;chmod(&quot;elen.ku&quot;,777)&quot;. Untuk menghapus filenya menggunakan &quot;remove(&quot;elen.ku&quot;)<br>
+<br>
 
 #### Source Code
 ```
