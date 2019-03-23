@@ -1,6 +1,8 @@
 # SoalShift_Modul2_D07
 
 ### No.1
+
+#### Penyelesaian :
 Pada penyelesaian soal no 1 saya menggunakan pipe dengan mengiterasi file menggunakan find dengan argumen -name -printf. Output dari command terebut di cari basenamenya dan di pipe lagi dengan mv untuk merename file. Saya juga menggunakan xargs . Xargs merupakan proses input dan output dari pipe.
 
 ### No.2 (Belum bekerja)
